@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   background: var(--paper);
 }
 
@@ -58,9 +59,9 @@ h3,
 }
 
 h1 {
-  max-width: 780px;
-  font-size: clamp(3.1rem, 6.8vw, 6.35rem);
-  line-height: 0.9;
+  max-width: 690px;
+  font-size: clamp(2.75rem, 5.7vw, 5.15rem);
+  line-height: 0.92;
   text-transform: uppercase;
 }
 
@@ -243,19 +244,19 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.78fr);
   align-items: center;
-  min-height: 620px;
-  gap: 48px;
+  min-height: 540px;
+  gap: 42px;
 }
 
 .hero-copy {
   display: grid;
-  gap: 20px;
+  gap: 16px;
   min-width: 0;
 }
 
 .hero-copy > p:not(.eyebrow) {
-  max-width: 620px;
-  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  max-width: 560px;
+  font-size: clamp(1rem, 1.5vw, 1.08rem);
 }
 
 .button-row {
@@ -266,7 +267,7 @@ p {
 
 .hero-media {
   position: relative;
-  min-height: 520px;
+  min-height: 430px;
   overflow: hidden;
   border-radius: 28px;
   background: var(--ink);
@@ -769,11 +770,11 @@ p {
 
   .hero {
     min-height: auto;
-    padding-top: 62px;
+    padding-top: 44px;
   }
 
   .hero-media {
-    min-height: min(680px, 92vw);
+    min-height: min(520px, 82vw);
   }
 
   .philosophy-grid,
@@ -800,15 +801,23 @@ p {
 }
 
 @media (max-width: 720px) {
+  body {
+    background:
+      linear-gradient(180deg, rgb(247 241 232 / 72%) 0, transparent 330px),
+      var(--paper);
+  }
+
   .section-pad {
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
-    padding: 58px 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 42px 18px;
   }
 
   .nav-shell {
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
+    width: calc(100% - 36px);
+    max-width: calc(100% - 36px);
+    min-height: 66px;
+    gap: 12px;
   }
 
   .hero-copy,
@@ -816,24 +825,83 @@ p {
   .content-card,
   .booking-panel,
   .contact-card {
-    max-width: calc(100vw - 24px);
+    max-width: 100%;
+  }
+
+  .hero-copy,
+  .hero-media,
+  .image-panel,
+  .content-card,
+  .section-intro,
+  .philosophy-grid,
+  .service-grid,
+  .expect-copy,
+  .stacked-photos,
+  .booking-panel,
+  .pricing-grid,
+  .photo-strip,
+  .contact-card {
+    width: calc(100vw - 48px);
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .logo-image {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-mark {
+    gap: 9px;
+  }
+
+  .logo-mark strong {
+    font-size: 0.98rem;
   }
 
   .logo-mark small {
-    max-width: 138px;
+    max-width: 130px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 0.66rem;
   }
 
   h1 {
     max-width: 100%;
-    font-size: clamp(2.35rem, 10.5vw, 2.7rem);
-    line-height: 0.98;
+    font-size: clamp(1.9rem, 8.3vw, 2.25rem);
+    line-height: 1;
+    overflow-wrap: anywhere;
   }
 
   h2 {
-    font-size: clamp(2.25rem, 12vw, 3.2rem);
+    font-size: clamp(1.45rem, 7vw, 1.85rem);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  h3 {
+    font-size: 1.18rem;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    font-size: 0.92rem;
+    line-height: 1.58;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  .nav-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-links {
+    inset: 66px 12px auto 12px;
   }
 
   .button-row,
@@ -841,7 +909,26 @@ p {
     width: 100%;
   }
 
+  .button {
+    min-height: 46px;
+  }
+
+  .hero {
+    gap: 28px;
+    padding-top: 32px;
+  }
+
+  .hero-copy {
+    gap: 14px;
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    max-width: 100%;
+    font-size: 0.98rem;
+  }
+
   .hero-media {
+    min-height: 300px;
     border-radius: 24px;
   }
 
@@ -862,13 +949,31 @@ p {
     border-radius: 18px;
   }
 
+  .content-card,
+  .service-card,
+  .feature-card,
+  .price-card,
+  .contact-card,
+  .booking-panel {
+    padding: 22px;
+  }
+
+  .section-intro,
+  .purpose-section,
+  .training,
+  .pricing,
+  .testimonials,
+  .expect-copy {
+    gap: 22px;
+  }
+
   .photo-strip {
     grid-template-columns: 1fr;
   }
 
   .photo-strip img,
   .photo-strip img:nth-child(2) {
-    height: 280px;
+    height: 230px;
   }
 
   .photo-strip img:last-child {
@@ -880,22 +985,57 @@ p {
   }
 
   .feature-card span {
-    margin-bottom: 22px;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 18px;
   }
 
   .stacked-photos > div:first-child,
   .stacked-photos > div:last-child {
     width: 100%;
-    min-height: 280px;
+    min-height: 220px;
+  }
+
+  .image-panel {
+    min-height: 390px;
+  }
+
+  .expect-item,
+  .stat-card {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .price-card strong {
+    font-size: 2.35rem;
   }
 
   .booking {
-    padding-right: 12px;
-    padding-left: 12px;
+    padding-right: 18px;
+    padding-left: 18px;
   }
 
   .booking-panel {
     width: 100%;
+    gap: 22px;
+  }
+
+  .booking-options strong {
+    font-size: 1.05rem;
+  }
+
+  .contact-list div {
+    padding: 14px;
+  }
+
+  .footer {
+    gap: 12px;
+    padding: 34px 16px;
+  }
+
+  .footer .logo-image {
+    width: 58px;
+    height: 58px;
   }
 
 }
