@@ -17,7 +17,4 @@ No build step is required.
 
 ## Update Points
 
-- Add Idalys's real Calendly URL in the booking section.
-- Replace placeholder pricing with final package details.
 - Add real parent or athlete testimonials when available.
-- Add confirmed email, phone, and Instagram details.
