@@ -6,7 +6,7 @@
   --soft: #f7f1e8;
   --black: #050505;
   --gold: #e9c891;
-  --gold-deep: #a7793f;
+  --gold-deep: #8a612f;
   --gold-soft: #fff0d5;
   --field: #1f6f4a;
   --radius: 18px;
@@ -41,6 +41,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 h1,
@@ -85,6 +86,29 @@ p {
   color: var(--muted);
   font-size: 1.02rem;
   line-height: 1.7;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-deep);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 14px;
+  color: var(--paper);
+  border-radius: 999px;
+  background: var(--black);
+  font-weight: 900;
+  transform: translateY(-140%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .sr-only {
@@ -267,6 +291,7 @@ p {
 
 .hero-media {
   position: relative;
+  aspect-ratio: 0.8;
   min-height: 430px;
   overflow: hidden;
   border-radius: 28px;
@@ -314,6 +339,7 @@ p {
 }
 
 .image-panel {
+  aspect-ratio: 2 / 3;
   min-height: 610px;
 }
 
@@ -354,6 +380,7 @@ p {
   background: var(--soft);
   font-weight: 900;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .purpose-section {
@@ -437,6 +464,7 @@ p {
   color: var(--ink);
   font-weight: 800;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .service-card li::before {
@@ -496,10 +524,12 @@ p {
 }
 
 .stacked-photos > div:first-child {
+  aspect-ratio: 3 / 2;
   min-height: 290px;
 }
 
 .stacked-photos > div:last-child {
+  aspect-ratio: 3 / 2;
   width: 72%;
   min-height: 330px;
   margin-left: auto;
@@ -545,6 +575,9 @@ p {
 .booking-options {
   display: grid;
   gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .booking-options a {
@@ -570,6 +603,7 @@ p {
 .booking-options span {
   color: rgb(255 255 255 / 72%);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .contact-list a {
@@ -583,18 +617,40 @@ p {
 }
 
 .pricing,
+.faq,
 .testimonials {
   display: grid;
   gap: 34px;
 }
 
-.pricing-grid {
+.pricing-grid,
+.faq-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.faq-item {
+  border-top: 2px solid var(--gold-deep);
+  padding-top: 16px;
+}
+
+.faq-item h3 {
+  font-size: 1.12rem;
+}
+
+.faq-item p {
+  font-size: 0.96rem;
 }
 
 .price-card {
   display: grid;
   gap: 16px;
+  align-content: start;
 }
 
 .price-card strong {
@@ -611,6 +667,7 @@ p {
 
 .photo-strip img {
   width: 100%;
+  aspect-ratio: 3 / 4;
   height: 360px;
   border-radius: var(--radius);
   object-fit: cover;
@@ -668,6 +725,7 @@ p {
 .contact-list strong {
   margin-top: 4px;
   font-size: 1.08rem;
+  overflow-wrap: anywhere;
 }
 
 .footer {
@@ -794,6 +852,7 @@ p {
   }
 
   .philosophy-grid,
+  .faq-grid,
   .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -855,6 +914,7 @@ p {
   .stacked-photos,
   .booking-panel,
   .pricing-grid,
+  .faq-grid,
   .photo-strip,
   .contact-card {
     width: calc(100vw - 48px);
@@ -927,6 +987,12 @@ p {
 
   .button {
     min-height: 46px;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .hero {
@@ -951,6 +1017,7 @@ p {
   .service-grid,
   .philosophy-grid,
   .pricing-grid,
+  .faq-grid,
   .expect-grid,
   .stat-grid {
     grid-template-columns: 1fr;
